@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  {%load static%}
+  <head>
+    <title>Furry Friends 🐾</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'CSS/style.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <label class="logo"> Furry Friends 🐾 </label>
+        
+      </nav>
+    </header>
+  <body>
+    <style>
+        
+        .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh; /* Adjust as needed */
+        }
+        @media print {
+            #print-content {
+                font-family: Arial, sans-serif;
+                padding: 2px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: auto; /* Adjust width as needed */
+                height: auto; /* Adjust height as needed */
+                margin:0 auto; /* Center the card horizontally */
+                
+            }
+            button {
+                display: none;
+              }
+        }
+      </style>
+      <div class = "container">
+    <div id='print-content' class="card">
+      <img src="{{animal.img.url}}" alt="Animal Image" class="card-img" />
+      <div class="card-info">
+        <h2 class="card-title">Species: {{animal.species}}</h2>
+        <p><strong>Breed:</strong> {{animal.breed}}</p>
+        <p><strong>Color:</strong> {{animal.color}}</p>
+        <p><strong>Description:</strong> {{animal.description}}</p>
+        <p><strong>Location:</strong> {{animal.location}}</p>
+        <p><strong>Contact:</strong> {{animal.contact}}</p>
+        <p><strong>Availability:</strong> {{animal.availabilitystatus}}</p>
+        <p><strong>Uploaded by:</strong> {{animal.uploadedby}}</p>
+      </div>
+    
+
+    <!-- Print Button -->
+    <button onclick="printDetails()">Print Details</button>
+
+    <script>
+      function printDetails() {
+        window.print();
+      }
+    </script>
+</div>
+</div>
+  </body>
+</html>

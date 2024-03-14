@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  {%load static%}
+  <head>
+    <title>Furry Friends 🐾</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'CSS/style.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <label class="logo"> Furry Friends 🐾 </label>
+        <ul>
+          {% block login %}
+          <li><a href="{% url 'login'%}">Login</a></li>
+          {% endblock login %}
+
+          <li><a href="#">Home</a></li>
+          {% block upload %}
+
+          {% endblock upload %}
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    {% block card_content %}
+      <section class="cardss">
+         
+        <h2>Pets You Can Adopt</h2>
+        <br />{% for animal in ele %}
+        <div class="card">
+          <img src="{{animal.img.url}}" alt="Animal Image" class="card-img">
+          <div class="card-info">
+            <h2 class="card-title">Species: {{animal.species}}</h2>
+            <p><strong>Breed:</strong> {{animal.breed}}</p>
+            <p><strong>Color:</strong> {{animal.color}}</p>
+            <p><strong>Description:</strong> {{animal.description}}</p>
+            <p><strong>Location:</strong> {{animal.location}}</p>
+            <p><strong>Contact:</strong> {{animal.contact}}</p>
+            <p><strong>Availability:</strong> {{animal.availabilitystatus}}</p>
+            <p><strong>Uploaded by:</strong> {{animal.uploadedby}}</p>
+            <a href="{% url 'detail' animal.animalid %}">Details</a>
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+      {% endblock card_content %}
+      <section class="about-us">
+        <h2>About Us</h2>
+        <p>
+          "Welcome to our sanctuary of love and hope, where every wag of a tail, every purr, and every glance speaks volumes of longing for a forever home. At our animal adoption haven, we believe in the transformative power of companionship, where each adoption tale is a testament to the joy of finding and giving unconditional love. From playful pups to serene seniors, every soul here is a treasure waiting to bless a home. Join us on this heartwarming journey of compassion, where every adoption is not just a new beginning, but a lifelong promise of love and loyalty. Together, let's make a difference, one paw at a time."
+        </p>
+        
+      </section>
+
+      <footer class="contact">
+        <h2>Contact Us</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+      </footer>
+    </main>
+  </body>
+</html>

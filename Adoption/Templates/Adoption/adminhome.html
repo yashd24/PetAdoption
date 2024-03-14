@@ -1,0 +1,9 @@
+{% extends 'Adoption/home.html' %} {% block create %}
+<button>
+  <a href="{% url 'add' %}">Create </a>
+</button>
+{% endblock create %} {% block delete %}
+<button>
+  <a href="{%url 'delete' animal.animalid %}" class="delete"> Delete </a>
+</button>
+{% endblock delete %}

@@ -1,0 +1,5 @@
+{% extends 'Adoption/home.html' %} {% block login %}
+<li><a href="{% url 'logout'%}">Logout</a></li>
+{% endblock login %} {%block upload %}
+<li><a href="{% url 'add' %}">Upload</a></li>
+{%endblock upload%}
